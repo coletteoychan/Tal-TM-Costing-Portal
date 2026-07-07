@@ -10,7 +10,8 @@ st.title("🧥 TAL TravisMathew Costing Portal")
 @st.cache_data
 def load_master():
     df = pd.read_excel("TravisMathew Master Trim List.xlsx")
-    st.write("**Master Columns:**", df.columns.tolist())
+    st.write("**Master Columns:**", df.columns.tolist())   # for debug
+    # Force Unit Cost to be numeric
     if 'Unit Cost' in df.columns:
         df['Unit Cost'] = pd.to_numeric(df['Unit Cost'], errors='coerce')
     st.success(f"✅ Master Trim List loaded! ({len(df)} items)")
